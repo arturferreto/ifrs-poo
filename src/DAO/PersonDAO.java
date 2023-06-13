@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PersonDAO {
     Connection connection;
@@ -13,16 +15,15 @@ public class PersonDAO {
     ResultSet resultSet = null;
 
     public PersonDAO() {
-        connection = DatabaseConfig.getConnection();
+        connection = DatabaseDAO.getConnection();
     }
 
-    public Person[] index() {
+    public List<Person> index() {
+        List<Person> people = new ArrayList<>();
+
         try {
             preparedStatement = connection.prepareStatement("SELECT * FROM cu_people");
             resultSet = preparedStatement.executeQuery();
-            Person[] people = new Person[100];
-
-            int i = 0;
 
             while(resultSet.next()) {
                 Person person = new Person();
@@ -33,8 +34,7 @@ public class PersonDAO {
                 person.setDriver(resultSet.getBoolean("is_driver"));
                 person.setFavAddressId(resultSet.getInt("fav_address_id"));
                 person.setFavVehicleId(resultSet.getInt("fav_vehicle_id"));
-                people[i] = person;
-                i++;
+                people.add(person);
             }
 
             return people;
@@ -45,30 +45,32 @@ public class PersonDAO {
 
     public Person show(int id) {
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM cu_people WHERE id = ?");
+            preparedStatement = connection.prepareStatement("SELECT * FROM cu_people WHERE id = ? LIMIT 1");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
-            resultSet.next();
 
-            Person person = new Person();
-            person.setId(resultSet. getInt("id"));
-            person.setName(resultSet.getString("name"));
-            person.setEmail(resultSet.getString("email"));
-            person.setPhone(resultSet.getString("phone"));
-            person.setDriver(resultSet.getBoolean("is_driver"));
-            person.setFavAddressId(resultSet.getInt("fav_address_id"));
-            person.setFavVehicleId(resultSet.getInt("fav_vehicle_id"));
+            if (resultSet.next()) {
+                Person person = new Person();
+                person.setId(resultSet.getInt("id"));
+                person.setName(resultSet.getString("name"));
+                person.setEmail(resultSet.getString("email"));
+                person.setPhone(resultSet.getString("phone"));
+                person.setDriver(resultSet.getBoolean("is_driver"));
+                person.setFavAddressId(resultSet.getInt("fav_address_id"));
+                person.setFavVehicleId(resultSet.getInt("fav_vehicle_id"));
 
-            return person;
+                return person;
+            } else {
+                return null;
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-
     public void store(Person person) {
         try {
-            preparedStatement = connection.prepareStatement("INSERT INTO cu_people VALUES (NULL, ?, ?, ?, ?, NULL)");
+            preparedStatement = connection.prepareStatement("INSERT INTO cu_people(name, email, phone, is_driver) VALUES (?, ?, ?, ?)");
             preparedStatement.setString(1, person.getName());
             preparedStatement.setString(2, person.getEmail());
             preparedStatement.setString(3, person.getPhone());
@@ -87,7 +89,7 @@ public class PersonDAO {
             preparedStatement.setString(3, person.getPhone());
             preparedStatement.setBoolean(4, person.isDriver());
             preparedStatement.setInt(5, person.getId());
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -97,7 +99,7 @@ public class PersonDAO {
         try {
             preparedStatement = connection.prepareStatement("DELETE FROM cu_people WHERE id = ?");
             preparedStatement.setInt(1, id);
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
