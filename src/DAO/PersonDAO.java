@@ -18,7 +18,7 @@ public class PersonDAO {
         connection = DatabaseDAO.getConnection();
     }
 
-    public List<Person> index() {
+    public List<Person> findAll() {
         List<Person> people = new ArrayList<>();
 
         try {
@@ -43,7 +43,7 @@ public class PersonDAO {
         }
     }
 
-    public Person show(int id) {
+    public Person findOneById(int id) {
         try {
             preparedStatement = connection.prepareStatement("SELECT * FROM cu_people WHERE id = ? LIMIT 1");
             preparedStatement.setInt(1, id);
@@ -68,7 +68,7 @@ public class PersonDAO {
         }
     }
 
-    public void store(Person person) {
+    public void insert(Person person) {
         try {
             preparedStatement = connection.prepareStatement("INSERT INTO cu_people(name, email, phone, is_driver) VALUES (?, ?, ?, ?)");
             preparedStatement.setString(1, person.getName());
@@ -95,7 +95,7 @@ public class PersonDAO {
         }
     }
 
-    public void destroy(int id) {
+    public void delete(int id) {
         try {
             preparedStatement = connection.prepareStatement("DELETE FROM cu_people WHERE id = ?");
             preparedStatement.setInt(1, id);
