@@ -11,7 +11,7 @@ public class Ride {
     private int vehicleId;
     private int personId;
     private int addressId;
-    private RideType rideType;
+    private int rideType;
 
     public int getId() {
         return id;
@@ -61,11 +61,11 @@ public class Ride {
         this.addressId = addressId;
     }
 
-    public RideType getRideType() {
+    public int getRideType() {
         return rideType;
     }
 
-    public void setRideType(RideType rideType) {
+    public void setRideType(int rideType) {
         this.rideType = rideType;
     }
 }
