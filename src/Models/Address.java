@@ -24,9 +24,7 @@ public class Address {
     }
 
     public void setNumber(String number) {
-        if(number.length() <= 10) {
-            this.number = number;
-        }
+        this.number = number;
     }
 
     public String getStreet() {

@@ -38,9 +38,7 @@ public class Person {
     }
 
     public void setPhone(String phone) {
-        if(phone.length() <= 20) {
             this.phone = phone;
-        }
     }
 
     public boolean isDriver() {

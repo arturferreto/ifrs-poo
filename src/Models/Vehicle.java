@@ -30,9 +30,7 @@ public class Vehicle {
     }
 
     public void setPlate(String plate) {
-        if (plate.length() <= 10 ) {
-            this.plate = plate;
-        }
+        this.plate = plate;
     }
 
     public String getColor() {
