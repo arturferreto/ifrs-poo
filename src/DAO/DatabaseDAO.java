@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DatabaseConfig {
+public class DatabaseDAO {
     private static final String IP       = "82.180.153.65";
     private static final String USER     = "u142008557_aula";
     private static final String PASSWORD = "Aula01Aula01!";

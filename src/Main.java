@@ -7,24 +7,20 @@ public class Main {
     public static void main(String[] args) {
 //        Listagem
 //        PersonDAO personDAO = new PersonDAO();
-//        Person[] people = personDAO.index();
-//
-//        for (Person person : people) {
-//            if(person != null) {
-//                System.out.println(person.getId());
-//            }
+//        for (Person person : personDAO.index()) {
+//            System.out.println(person.getName());
 //        }
 
 //        Mostrar
 //        PersonDAO personDAO = new PersonDAO();
-//        Person person = personDAO.show(26);
+//        Person person = personDAO.show(30);
 //        System.out.println(person.getName());
 
 //        Store
 //        Person person = new Person();
-//        person.setName("Rafauuel");
-//        person.setEmail("rafauuel@test.com");
-//        person.setPhone("40028922");
+//        person.setName("Artuuuur");
+//        person.setEmail("artuuuur@test.com");
+//        person.setPhone("40028911");
 //        person.setDriver(true);
 //
 //        PersonDAO personDAO = new PersonDAO();
@@ -38,6 +34,6 @@ public class Main {
 
 //        Destroy
 //        PersonDAO personDAO = new PersonDAO();
-//        personDAO.destroy(29);
+//        personDAO.destroy(30);
     }
 }
