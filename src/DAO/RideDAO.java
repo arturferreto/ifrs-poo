@@ -69,7 +69,7 @@ public class RideDAO {
         try {
             preparedStatement = connection.prepareStatement("INSERT INTO cu_rides(description, date, vehicle_id, person_id, address_id, ride_type) VALUES (?, ?, ?, ?, ?, ?)");
             preparedStatement.setString(1, ride.getDescription());
-            preparedStatement.setDate(2, (Date) ride.getDate()); // TODO: verificar se funcionou mesmo
+            preparedStatement.setDate(2, new java.sql.Date(ride.getDate().getTime()));
             preparedStatement.setInt(3, ride.getVehicleId());
             preparedStatement.setInt(4, ride.getPersonId());
             preparedStatement.setInt(5, ride.getAddressId());
@@ -84,12 +84,12 @@ public class RideDAO {
         try {
             preparedStatement = connection.prepareStatement("UPDATE cu_rides SET description = ?, date = ?, vehicle_id = ?, person_id = ?, address_id = ?, ride_type = ? WHERE id = ?");
             preparedStatement.setString(1, ride.getDescription());
-            preparedStatement.setDate(2, (Date) ride.getDate()); // TODO: verificar se funcionou mesmo
+            preparedStatement.setDate(2, new java.sql.Date(ride.getDate().getTime()));
             preparedStatement.setInt(3, ride.getVehicleId());
             preparedStatement.setInt(4, ride.getPersonId());
             preparedStatement.setInt(5, ride.getAddressId());
             preparedStatement.setInt(6, ride.getRideType());
-            preparedStatement.setInt(6, ride.getId());
+            preparedStatement.setInt(7, ride.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
