@@ -1,39 +1,83 @@
+import DAO.AddressDAO;
 import DAO.PersonDAO;
+import DAO.RideDAO;
+import DAO.VehicleDAO;
+import Models.Address;
 import Models.Person;
-
-import java.sql.SQLException;
+import Models.Ride;
+import Models.Vehicle;
 
 public class Main {
     public static void main(String[] args) {
 //        Listagem
 //        PersonDAO personDAO = new PersonDAO();
-//        for (Person person : personDAO.index()) {
+//        for (Person person : personDAO.findAll()) {
 //            System.out.println(person.getName());
 //        }
 
 //        Mostrar
 //        PersonDAO personDAO = new PersonDAO();
-//        Person person = personDAO.show(30);
+//        Person person = personDAO.findOneById(30);
 //        System.out.println(person.getName());
 
 //        Store
+
+        // pessoa
 //        Person person = new Person();
-//        person.setName("Artuuuur");
-//        person.setEmail("artuuuur@test.com");
-//        person.setPhone("40028911");
+//        person.setName("Rafael");
+//        person.setEmail("rafael@test.com.br");
+//        person.setPhone("5440028922");
 //        person.setDriver(true);
 //
 //        PersonDAO personDAO = new PersonDAO();
-//        personDAO.store(person);
+//        personDAO.insert(person);
+
+        // veículo
+//        Vehicle vehicle = new Vehicle();
+//        vehicle.setPersonId(1);
+//        vehicle.setColor("Preto");
+//        vehicle.setBrand("Fiat");
+//        vehicle.setModel("Uno");
+//        vehicle.setPlate("ABC-1234");
+//        vehicle.setSeats(20);
+//
+//        VehicleDAO vehicleDAO = new VehicleDAO();
+//        vehicleDAO.insert(vehicle);
+
+        // endereço
+//        Address address = new Address();
+//        address.setNumber("123");
+//        address.setComplement("Casa");
+//        address.setStreet("Rua Teste");
+//        address.setNeighborhood("Centro");
+//        address.setCity("Veranópolis");
+//        address.setState("Rio Grande do Sul");
+//        address.setCountry("Brasil");
+//        address.setPostalCode("95330000");
+//
+//        AddressDAO addressDAO = new AddressDAO();
+//        addressDAO.insert(address);
+
+        // carona
+//        Ride ride = new Ride();
+//        ride.setDescription("IFRS");
+//        ride.setDate(new java.util.Date());
+//        ride.setVehicleId(1);
+//        ride.setPersonId(1);
+//        ride.setAddressId(1);
+//        ride.setRideType(1);
+//
+//        RideDAO rideDAO = new RideDAO();
+//        rideDAO.insert(ride);
 
 //        Update
-//        PersonDAO personDAO = new PersonDAO();
-//        Person person = personDAO.show(8);
-//        person.setName("Rafauuel");
-//        personDAO.update(person);
+//        RideDAO rideDAO = new RideDAO();
+//        Ride ride = rideDAO.findOneById(2);
+//        ride.setDescription("IFRS Veranópolis");
+//        rideDAO.update(ride);
 
 //        Destroy
 //        PersonDAO personDAO = new PersonDAO();
-//        personDAO.destroy(30);
+//        personDAO.delete(30);
     }
 }
