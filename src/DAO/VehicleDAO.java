@@ -22,7 +22,7 @@ public class VehicleDAO {
         List<Vehicle> vehicles = new ArrayList<>();
 
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM cu_vehicles");
+            preparedStatement = connection.prepareStatement("SELECT * FROM vehicles");
             resultSet = preparedStatement.executeQuery();
 
             while(resultSet.next()) {
@@ -45,7 +45,7 @@ public class VehicleDAO {
 
     public Vehicle findOneById(int id) {
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM cu_vehicles WHERE id = ? LIMIT 1");
+            preparedStatement = connection.prepareStatement("SELECT * FROM vehicles WHERE id = ? LIMIT 1");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
 
@@ -70,7 +70,7 @@ public class VehicleDAO {
 
     public void insert(Vehicle vehicle) {
         try {
-            preparedStatement = connection.prepareStatement("INSERT INTO cu_vehicles(person_id, plate, color, brand, model, seats) VALUES (?, ?, ?, ?, ?, ?)");
+            preparedStatement = connection.prepareStatement("INSERT INTO vehicles(person_id, plate, color, brand, model, seats) VALUES (?, ?, ?, ?, ?, ?)");
             preparedStatement.setInt(1, vehicle.getPersonId());
             preparedStatement.setString(2, vehicle.getPlate());
             preparedStatement.setString(3, vehicle.getColor());
@@ -85,7 +85,7 @@ public class VehicleDAO {
 
     public void update(Vehicle vehicle) {
         try {
-            preparedStatement = connection.prepareStatement("UPDATE cu_vehicles SET plate = ?, color = ?, brand = ?, model = ?, seats = ? WHERE id = ?");
+            preparedStatement = connection.prepareStatement("UPDATE vehicles SET plate = ?, color = ?, brand = ?, model = ?, seats = ? WHERE id = ?");
             preparedStatement.setString(1, vehicle.getPlate());
             preparedStatement.setString(2, vehicle.getColor());
             preparedStatement.setString(3, vehicle.getBrand());
@@ -100,7 +100,7 @@ public class VehicleDAO {
 
     public void delete(int id) {
         try {
-            preparedStatement = connection.prepareStatement("DELETE FROM cu_vehicles WHERE id = ?");
+            preparedStatement = connection.prepareStatement("DELETE FROM vehicles WHERE id = ?");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

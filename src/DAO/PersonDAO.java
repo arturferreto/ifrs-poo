@@ -22,7 +22,7 @@ public class PersonDAO {
         List<Person> people = new ArrayList<>();
 
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM cu_people");
+            preparedStatement = connection.prepareStatement("SELECT * FROM people");
             resultSet = preparedStatement.executeQuery();
 
             while(resultSet.next()) {
@@ -45,7 +45,7 @@ public class PersonDAO {
 
     public Person findOneById(int id) {
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM cu_people WHERE id = ? LIMIT 1");
+            preparedStatement = connection.prepareStatement("SELECT * FROM people WHERE id = ? LIMIT 1");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
 
@@ -70,7 +70,7 @@ public class PersonDAO {
 
     public void insert(Person person) {
         try {
-            preparedStatement = connection.prepareStatement("INSERT INTO cu_people(name, email, phone, is_driver) VALUES (?, ?, ?, ?)");
+            preparedStatement = connection.prepareStatement("INSERT INTO people(name, email, phone, is_driver) VALUES (?, ?, ?, ?)");
             preparedStatement.setString(1, person.getName());
             preparedStatement.setString(2, person.getEmail());
             preparedStatement.setString(3, person.getPhone());
@@ -83,7 +83,7 @@ public class PersonDAO {
 
     public void update(Person person) {
         try {
-            preparedStatement = connection.prepareStatement("UPDATE cu_people SET name = ?, email = ?, phone = ?, is_driver = ? WHERE id = ?");
+            preparedStatement = connection.prepareStatement("UPDATE people SET name = ?, email = ?, phone = ?, is_driver = ? WHERE id = ?");
             preparedStatement.setString(1, person.getName());
             preparedStatement.setString(2, person.getEmail());
             preparedStatement.setString(3, person.getPhone());
@@ -97,7 +97,7 @@ public class PersonDAO {
 
     public void delete(int id) {
         try {
-            preparedStatement = connection.prepareStatement("DELETE FROM cu_people WHERE id = ?");
+            preparedStatement = connection.prepareStatement("DELETE FROM people WHERE id = ?");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

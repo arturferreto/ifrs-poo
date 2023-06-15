@@ -22,7 +22,7 @@ public class AddressDAO {
         List<Address> addresses = new ArrayList<>();
 
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM cu_addresses");
+            preparedStatement = connection.prepareStatement("SELECT * FROM addresses");
             resultSet = preparedStatement.executeQuery();
 
             while(resultSet.next()) {
@@ -47,7 +47,7 @@ public class AddressDAO {
 
     public Address findOneById(int id) {
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM cu_addresses WHERE id = ? LIMIT 1");
+            preparedStatement = connection.prepareStatement("SELECT * FROM addresses WHERE id = ? LIMIT 1");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
 
@@ -74,7 +74,7 @@ public class AddressDAO {
 
     public void insert(Address address) {
         try {
-            preparedStatement = connection.prepareStatement("INSERT INTO cu_addresses(number, street, neighborhood, complement, city, state, country, postal_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            preparedStatement = connection.prepareStatement("INSERT INTO addresses(number, street, neighborhood, complement, city, state, country, postal_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             preparedStatement.setString(1, address.getNumber());
             preparedStatement.setString(2, address.getStreet());
             preparedStatement.setString(3, address.getNeighborhood());
@@ -91,7 +91,7 @@ public class AddressDAO {
 
     public void update(Address address) {
         try {
-            preparedStatement = connection.prepareStatement("UPDATE cu_addresses SET number = ?, street = ?, neighborhood = ?, complement = ?, city = ?, state = ?, country = ?, postal_code = ? WHERE id = ?");
+            preparedStatement = connection.prepareStatement("UPDATE addresses SET number = ?, street = ?, neighborhood = ?, complement = ?, city = ?, state = ?, country = ?, postal_code = ? WHERE id = ?");
             preparedStatement.setString(1, address.getNumber());
             preparedStatement.setString(2, address.getStreet());
             preparedStatement.setString(3, address.getNeighborhood());
@@ -109,7 +109,7 @@ public class AddressDAO {
 
     public void delete(int id) {
         try {
-            preparedStatement = connection.prepareStatement("DELETE FROM cu_addresses WHERE id = ?");
+            preparedStatement = connection.prepareStatement("DELETE FROM addresses WHERE id = ?");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

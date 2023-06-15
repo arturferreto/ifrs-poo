@@ -19,7 +19,7 @@ public class RideDAO {
         List<Ride> rides = new ArrayList<>();
 
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM cu_rides");
+            preparedStatement = connection.prepareStatement("SELECT * FROM rides");
             resultSet = preparedStatement.executeQuery();
 
             while(resultSet.next()) {
@@ -42,7 +42,7 @@ public class RideDAO {
 
     public Ride findOneById(int id) {
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM cu_rides WHERE id = ? LIMIT 1");
+            preparedStatement = connection.prepareStatement("SELECT * FROM rides WHERE id = ? LIMIT 1");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
 
@@ -67,7 +67,7 @@ public class RideDAO {
 
     public void insert(Ride ride) {
         try {
-            preparedStatement = connection.prepareStatement("INSERT INTO cu_rides(description, date, vehicle_id, person_id, address_id, ride_type) VALUES (?, ?, ?, ?, ?, ?)");
+            preparedStatement = connection.prepareStatement("INSERT INTO rides(description, date, vehicle_id, person_id, address_id, ride_type) VALUES (?, ?, ?, ?, ?, ?)");
             preparedStatement.setString(1, ride.getDescription());
             preparedStatement.setDate(2, new java.sql.Date(ride.getDate().getTime()));
             preparedStatement.setInt(3, ride.getVehicleId());
@@ -82,7 +82,7 @@ public class RideDAO {
 
     public void update(Ride ride) {
         try {
-            preparedStatement = connection.prepareStatement("UPDATE cu_rides SET description = ?, date = ?, vehicle_id = ?, person_id = ?, address_id = ?, ride_type = ? WHERE id = ?");
+            preparedStatement = connection.prepareStatement("UPDATE rides SET description = ?, date = ?, vehicle_id = ?, person_id = ?, address_id = ?, ride_type = ? WHERE id = ?");
             preparedStatement.setString(1, ride.getDescription());
             preparedStatement.setDate(2, new java.sql.Date(ride.getDate().getTime()));
             preparedStatement.setInt(3, ride.getVehicleId());
@@ -98,7 +98,7 @@ public class RideDAO {
 
     public void delete(int id) {
         try {
-            preparedStatement = connection.prepareStatement("DELETE FROM cu_rides WHERE id = ?");
+            preparedStatement = connection.prepareStatement("DELETE FROM rides WHERE id = ?");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
