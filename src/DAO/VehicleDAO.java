@@ -15,7 +15,7 @@ public class VehicleDAO {
     ResultSet resultSet = null;
 
     public VehicleDAO() {
-        connection = DatabaseDAO.getConnection();
+        connection = ConfigDAO.getConnection();
     }
 
     public List<Vehicle> findAll() {

@@ -15,7 +15,7 @@ public class AddressDAO {
     ResultSet resultSet = null;
 
     public AddressDAO() {
-        connection = DatabaseDAO.getConnection();
+        connection = ConfigDAO.getConnection();
     }
 
     public List<Address> findAll() {

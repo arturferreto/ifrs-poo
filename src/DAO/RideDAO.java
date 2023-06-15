@@ -12,7 +12,7 @@ public class RideDAO {
     ResultSet resultSet = null;
 
     public RideDAO() {
-        connection = DatabaseDAO.getConnection();
+        connection = ConfigDAO.getConnection();
     }
 
     public List<Ride> findAll() {

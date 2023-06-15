@@ -15,7 +15,7 @@ public class PersonDAO {
     ResultSet resultSet = null;
 
     public PersonDAO() {
-        connection = DatabaseDAO.getConnection();
+        connection = ConfigDAO.getConnection();
     }
 
     public List<Person> findAll() {
