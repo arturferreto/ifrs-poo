@@ -1,7 +1,5 @@
 package Models;
 
-import Enums.RideType;
-
 import java.util.Date;
 
 public class Ride {
