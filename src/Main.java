@@ -1,11 +1,5 @@
-import DAO.AddressDAO;
 import DAO.PersonDAO;
-import DAO.RideDAO;
-import DAO.VehicleDAO;
-import Models.Address;
 import Models.Person;
-import Models.Ride;
-import Models.Vehicle;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,8 +15,7 @@ public class Main {
 //        System.out.println(person.getName());
 
 //        Store
-
-        // pessoa
+//        pessoa
 //        Person person = new Person();
 //        person.setName("Rafael");
 //        person.setEmail("rafael@test.com.br");
@@ -32,7 +25,7 @@ public class Main {
 //        PersonDAO personDAO = new PersonDAO();
 //        personDAO.insert(person);
 
-        // veículo
+//        veículo
 //        Vehicle vehicle = new Vehicle();
 //        vehicle.setPersonId(1);
 //        vehicle.setColor("Preto");
@@ -44,7 +37,7 @@ public class Main {
 //        VehicleDAO vehicleDAO = new VehicleDAO();
 //        vehicleDAO.insert(vehicle);
 
-        // endereço
+//        endereço
 //        Address address = new Address();
 //        address.setNumber("123");
 //        address.setComplement("Casa");
@@ -58,7 +51,7 @@ public class Main {
 //        AddressDAO addressDAO = new AddressDAO();
 //        addressDAO.insert(address);
 
-        // carona
+//        carona
 //        Ride ride = new Ride();
 //        ride.setDescription("IFRS");
 //        ride.setDate(new java.util.Date());
