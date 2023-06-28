@@ -1,5 +1,6 @@
 package DAO;
 
+import Helpers.DatabaseConnection;
 import Models.Passenger;
 
 import java.sql.Connection;
@@ -15,7 +16,7 @@ public class PassengerDAO {
     ResultSet resultSet = null;
 
     public PassengerDAO() {
-        connection = ConfigDAO.getConnection();
+        connection = DatabaseConnection.getConnection();
     }
 
     public List<Passenger> findAll() {

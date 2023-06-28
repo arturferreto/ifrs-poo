@@ -1,5 +1,6 @@
 package DAO;
 
+import Helpers.DatabaseConnection;
 import Models.Vehicle;
 
 import java.sql.Connection;
@@ -15,7 +16,7 @@ public class VehicleDAO {
     ResultSet resultSet = null;
 
     public VehicleDAO() {
-        connection = ConfigDAO.getConnection();
+        connection = DatabaseConnection.getConnection();
     }
 
     public List<Vehicle> findAll() {

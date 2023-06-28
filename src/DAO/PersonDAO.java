@@ -1,5 +1,6 @@
 package DAO;
 
+import Helpers.DatabaseConnection;
 import Models.Person;
 
 import java.sql.Connection;
@@ -15,7 +16,7 @@ public class PersonDAO {
     ResultSet resultSet = null;
 
     public PersonDAO() {
-        connection = ConfigDAO.getConnection();
+        connection = DatabaseConnection.getConnection();
     }
 
     public List<Person> findAll() {

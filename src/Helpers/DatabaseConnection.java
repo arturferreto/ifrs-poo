@@ -1,10 +1,10 @@
-package DAO;
+package Helpers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConfigDAO {
+public class DatabaseConnection {
     private static final String IP       = "82.180.153.65";
     private static final String USER     = "u142008557_cu";
     private static final String PASSWORD = "Aula01Aula01!";

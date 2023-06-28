@@ -1,5 +1,6 @@
 package DAO;
 
+import Helpers.DatabaseConnection;
 import Models.Ride;
 
 import java.sql.*;
@@ -12,7 +13,7 @@ public class RideDAO {
     ResultSet resultSet = null;
 
     public RideDAO() {
-        connection = ConfigDAO.getConnection();
+        connection = DatabaseConnection.getConnection();
     }
 
     public List<Ride> findAll() {

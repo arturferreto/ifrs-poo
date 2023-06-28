@@ -1,5 +1,6 @@
 package DAO;
 
+import Helpers.DatabaseConnection;
 import Models.Address;
 
 import java.sql.Connection;
@@ -15,7 +16,7 @@ public class AddressDAO {
     ResultSet resultSet = null;
 
     public AddressDAO() {
-        connection = ConfigDAO.getConnection();
+        connection = DatabaseConnection.getConnection();
     }
 
     public List<Address> findAll() {
