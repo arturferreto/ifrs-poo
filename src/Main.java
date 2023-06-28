@@ -1,8 +1,11 @@
-import DAO.PersonDAO;
-import Models.Person;
+import Views.LoginView;
 
 public class Main {
     public static void main(String[] args) {
+        new LoginView();
+
+//        LoginView login = new LoginView();
+//        login.setVisible(true);
 //        Listagem
 //        PersonDAO personDAO = new PersonDAO();
 //        for (Person person : personDAO.findAll()) {
