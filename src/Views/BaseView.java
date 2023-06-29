@@ -1,23 +1,23 @@
 package Views;
 
+import Views.Address.AddressView;
 import Views.Person.PersonDetailView;
 import Views.Person.PersonView;
 import Views.Ride.RideDetailView;
 import Views.Ride.RideView;
+import Views.Vehicle.VehicleView;
 
 import javax.swing.*;
 
 public abstract class BaseView extends JFrame {
     protected JMenuBar menuBar = new JMenuBar();
 
-    protected JMenu peopleMenu = new JMenu("Pessoas");
-    protected JMenu ridesMenu = new JMenu("Caronas");
+    protected JMenu navMenu = new JMenu("Cadastros");
     protected JMenu configMenu = new JMenu("Configurações");
 
-    protected JMenuItem peopleMenuItem = new JMenuItem("Lista");
-    protected JMenuItem createPeopleMenuItem = new JMenuItem("Cadastrar");
-    protected JMenuItem ridesMenuItem = new JMenuItem("Lista");
-    protected JMenuItem createRidesMenuItem = new JMenuItem("Cadastrar");
+    protected JMenuItem peopleMenuItem = new JMenuItem("Pessoas");
+    protected JMenuItem vehiclesMenuItem = new JMenuItem("Veículos");
+    protected JMenuItem addressesMenuItem = new JMenuItem("Endereços");
 
     protected JMenuItem mainMenuItem = new JMenuItem("Menu Principal");
     protected JMenuItem exitMenuItem = new JMenuItem("Sair");
@@ -34,18 +34,13 @@ public abstract class BaseView extends JFrame {
             dispose();
         });
 
-        createPeopleMenuItem.addActionListener(e -> {
-            new PersonDetailView();
+        vehiclesMenuItem.addActionListener(e -> {
+            new VehicleView();
             dispose();
         });
 
-        ridesMenuItem.addActionListener(e -> {
-            new RideView();
-            dispose();
-        });
-
-        createRidesMenuItem.addActionListener(e -> {
-            new RideDetailView();
+        addressesMenuItem.addActionListener(e -> {
+            new AddressView();
             dispose();
         });
 
@@ -60,15 +55,12 @@ public abstract class BaseView extends JFrame {
     }
 
     public void setupNavBar() {
-        menuBar.add(peopleMenu);
-        menuBar.add(ridesMenu);
+        menuBar.add(navMenu);
         menuBar.add(configMenu);
 
-        peopleMenu.add(peopleMenuItem);
-        peopleMenu.add(createPeopleMenuItem);
-
-        ridesMenu.add(ridesMenuItem);
-        ridesMenu.add(createRidesMenuItem);
+        navMenu.add(peopleMenuItem);
+        navMenu.add(vehiclesMenuItem);
+        navMenu.add(addressesMenuItem);
 
         configMenu.add(mainMenuItem);
         configMenu.add(exitMenuItem);

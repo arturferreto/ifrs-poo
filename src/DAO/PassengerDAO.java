@@ -71,7 +71,7 @@ public class PassengerDAO {
             preparedStatement.setInt(1, passenger.getRideId());
             preparedStatement.setInt(2, passenger.getPersonId());
             preparedStatement.setInt(3, passenger.getAddressId());
-            preparedStatement.setDate(4, new java.sql.Date(passenger.getDate().getTime())); // TODO: testar data
+            preparedStatement.setDate(4, new java.sql.Date(passenger.getDate().getTime()));
             preparedStatement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -84,7 +84,7 @@ public class PassengerDAO {
             preparedStatement.setInt(1, passenger.getRideId());
             preparedStatement.setInt(2, passenger.getPersonId());
             preparedStatement.setInt(3, passenger.getAddressId());
-            preparedStatement.setDate(4, new java.sql.Date(passenger.getDate().getTime())); // TODO: testar data
+            preparedStatement.setDate(4, new java.sql.Date(passenger.getDate().getTime()));
             preparedStatement.setInt(5, passenger.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

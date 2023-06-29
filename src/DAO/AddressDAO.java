@@ -101,7 +101,7 @@ public class AddressDAO {
             preparedStatement.setString(6, address.getState());
             preparedStatement.setString(7, address.getCountry());
             preparedStatement.setString(8, address.getPostalCode());
-            preparedStatement.setInt(6, address.getId());
+            preparedStatement.setInt(9, address.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
